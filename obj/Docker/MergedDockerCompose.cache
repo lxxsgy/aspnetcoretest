@@ -1,0 +1,19 @@
+services:
+  asonetcoretest:
+    build:
+      context: E:\asonetcoretest
+      dockerfile: asonetcoretest/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORT: '44317'
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: asonetcoretest
+    ports:
+    - published: 55530
+      target: 80
+    - published: 44317
+      target: 443
+    volumes:
+    - C:\Users\Administrator\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Administrator\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'
